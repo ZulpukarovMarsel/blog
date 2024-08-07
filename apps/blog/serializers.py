@@ -8,24 +8,24 @@ class TagsSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class BlogSerializer(serializers.ModelSerializer):
-    # user = UserSerializer(many=True)
-    # tags = TagsSerializer(many=True, required=False)
+    user = UserSerializer(many=True)
+    tags = TagsSerializer(many=True, required=False)
 
     class Meta:
         model = Blog
         fields = ['id', 'user', 'video', 'title', 'description', 'create_at', 'tags']
 
 class CommentSerializer(serializers.ModelSerializer):
-    # blog = BlogSerializer(many=True, required=False)
-    # user = UserSerializer(many=True, required=False)
+    blog = BlogSerializer(many=True, required=False)
+    user = UserSerializer(many=True, required=False)
 
     class Meta:
         model = Comment
         fields = '__all__'
 
 class LikeSerializer(serializers.ModelSerializer):
-    # blog = BlogSerializer(many=True, required=False)
-    # user = UserSerializer(many=True, required=False)
+    blog = BlogSerializer(many=True, required=False)
+    user = UserSerializer(many=True, required=False)
 
     class Meta:
         model = Like
